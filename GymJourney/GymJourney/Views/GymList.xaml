@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymJourney.GymList"
+             Title="Gyms Near You">
+    <!--XAML View of list of Gyms within radius. By Ahmed Abdelsalam-->
+    
+    <!--Toolbar Refresh Button-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh" Clicked="Refresh_Clicked" />
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout>
+        <!--Top stacklayout radius stepper control and scan button-->
+        <StackLayout Orientation="Horizontal" Padding="5" Spacing="10" HorizontalOptions="Center">
+            <Label Text="{Binding Source={x:Reference stepper}, Path=Value}" VerticalOptions="Start" FontSize="35"/>
+            <Label Text="Km Radius" VerticalOptions="Center"/>
+            <Stepper x:Name="stepper" Value="1" Increment="1" Maximum="15" Minimum="1" VerticalOptions="Center"/>
+            <Button Text="SCAN" x:Name="scanBtn" Clicked="Scan_Clicked" HorizontalOptions="End"/>
+        </StackLayout>
+        <!--Stacklayout End-->
+        
+        <!--ListView Template for Gyms list-->
+        <ListView x:Name="listGym" ItemSelected="listGym_ItemSelected" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout HeightRequest="50" VerticalOptions="Center" Padding="10">
+                            <Label FontSize="20" Text="{Binding Name}" TextColor="Black" />
+                            <Label Text="{Binding Vicinity}" TextColor="Gray"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--Listview Template End-->
+    </StackLayout>
+</ContentPage>

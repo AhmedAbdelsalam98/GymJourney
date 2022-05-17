@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:local="clr-namespace:GymJourney"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymJourney.Main">
+    <!--Main Tabbed Page that navigates to both Session/Journal list and Gym list. By Ahmed Abdelsalam-->
+    <NavigationPage Title="Journals">
+        <x:Arguments>
+            <local:SessionList/>
+        </x:Arguments>
+    </NavigationPage>
+    
+    <NavigationPage Title="Gyms">
+        <x:Arguments>
+            <local:GymList />
+        </x:Arguments>
+    </NavigationPage>
+    
+</TabbedPage>

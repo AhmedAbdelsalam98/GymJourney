@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymJourney.SessionView" Padding="10">
+    <!--View Session/Journal XAML file with Image, title, workout fields and goals checklist. By: Ahmed Abdelsalam-->
+    <Frame BackgroundColor="AliceBlue" Padding="10">
+        <ListView HasUnevenRows="True" x:Name="checklist" ItemSelected="checklist_ItemSelected">
+            <ListView.Header>
+                <!-- StackLayout-->
+                <StackLayout>
+                    <Image x:Name="image" HeightRequest="250"/>
+                    <Button Text="Capture photo" Clicked="Capture_Clicked"/>
+                    <Label Text="Title"/>
+                    <Entry Text="{Binding Title}" Placeholder="Enter custom title"/>
+                    <Label Text="Pre-Workout Notes" />
+                    <Editor Placeholder="Enter pre-workout thoughts here." Text="{Binding PreWorkOutNotes}" AutoSize="TextChanges"/>
+                    <Label Text="Post-Workout Notes" />
+                    <Editor Placeholder="Enter post-workout hindsight here." Text="{Binding PostWorkOutNotes}" AutoSize="TextChanges"/>
+                    <Label Text="Workout Goals"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Entry x:Name="entryCell" Placeholder="Enter workout goal here." HorizontalOptions="FillAndExpand"/>
+                        <Button Text="Add" HorizontalOptions="End" Clicked="AddGoalBtnClicked"/>
+                    </StackLayout>
+                </StackLayout>
+                <!--StackLayout End -->
+            </ListView.Header>
+            <!--Checkbox Goals listview template-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" HeightRequest="50">
+                            <Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                            <CheckBox IsChecked="{Binding IsChecked}" HorizontalOptions="End" />
+                        </StackLayout>
+                        <ViewCell.ContextActions>
+                            <MenuItem 
+								Text="Delete" 
+								IsDestructive="true" 
+								Clicked="OnDeleteClicked" 
+								CommandParameter="{Binding .}" />
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--list view template end-->
+        </ListView>
+    </Frame>
+</ContentPage>

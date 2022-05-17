@@ -1,0 +1,14 @@
+<!--
+//=============================================
+// Reference A3: externally sourced algorithm
+// Purpose: This class has methods that take advantage of camera service plugins (FileProvider Path).
+// Date: 8/11/2020
+// Source: The step by step set up of Media Plugin for Xamarin.Forms!
+// Author: Udara Alwis
+// url: https://theconfuzedsourcecode.wordpress.com/2020/01/28/the-step-by-step-set-up-of-media-plugin-for-xamarin-forms/
+//=============================================
+--><paths xmlns:android="http://schemas.android.com/apk/res/android"><external-files-path name="my_images" path="Pictures" /><external-files-path name="my_movies" path="Movies" /></paths><!--
+//=============================================
+// End reference A3
+//=============================================
+-->

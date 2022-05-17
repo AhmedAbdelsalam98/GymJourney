@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymJourney.GymView">
+    <!--This Gym View XAML shows image & details about the selected gym and open in maps button. By Ahmed Abdelsalam -->
+    <StackLayout>
+        <Image x:Name="image" HeightRequest="250" Aspect="AspectFill"/>
+        
+        <StackLayout Padding="20">
+            <Label x:Name="name" FontSize="40" TextColor="Black" />
+            <Label x:Name="vicinity" FontSize="20" TextColor="Gray" />
+            <Label x:Name="isOpen" FontSize="15" TextColor="Gray"/>
+            <Label x:Name="distance" FontSize="15" TextColor="Gray"/>
+            <Label x:Name="userRating" FontSize="15" TextColor="Gray"/>
+
+            <Button Text="OPEN IN MAPS" Clicked="MapsBtn_Clicked" VerticalOptions="End"/>
+        </StackLayout>
+        
+    </StackLayout>
+</ContentPage>

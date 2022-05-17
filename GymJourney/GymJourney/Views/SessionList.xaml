@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymJourney.SessionList"
+             Title="Your Journals">
+    <!-- Journal/Sessions List View XAML file. By Ahmed Abdelsalam-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="OnAddSession" />
+    </ContentPage.ToolbarItems>
+    
+    <!-- ListView Template for Sessions/Journal -->
+    <ListView x:Name="sessionsList" ItemSelected="sessionsList_ItemSelected" HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout HeightRequest="50" VerticalOptions="Center" Padding="10">
+                        <Label FontSize="20" Text="{Binding Title}" TextColor="Black" VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                    <ViewCell.ContextActions>
+                        <MenuItem 
+								Text="Delete" 
+								IsDestructive="true" 
+								Clicked="OnDeleteClicked" 
+								CommandParameter="{Binding .}" />
+                    </ViewCell.ContextActions>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    <!--End of ListView Template-->
+    
+</ContentPage>
